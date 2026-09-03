@@ -1,1 +1,437 @@
-# R0driguez1000.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Guide — Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #101B22;
+    --ink-soft: #4B5A60;
+    --bg: #F6F8F7;
+    --bg-alt: #FFFFFF;
+    --hero-bg: #0E1B21;
+    --hero-bg-2: #142A2E;
+    --accent-gold: #CB9A4E;
+    --accent-gold-soft: #E4C48A;
+    --accent-teal: #2F6E6E;
+    --line: #DCE3E1;
+    --line-dark: rgba(255,255,255,0.14);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+ 
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+ 
+  body{
+    margin:0; background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 17.5px; line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  body.large-text{ font-size: 20px; }
+ 
+  a{ color: var(--accent-teal); }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline: 3px solid var(--accent-teal); outline-offset: 3px;
+  }
+ 
+  .wrap{ max-width: 1080px; margin:0 auto; padding: 0 28px; }
+ 
+  /* ---------------- NAV ---------------- */
+  header.site-nav{
+    position: sticky; top:0; z-index: 60;
+    background: rgba(16,27,34,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width: 1080px; margin:0 auto; padding: 14px 28px;
+    display:flex; align-items:center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .brand{
+    font-family: var(--font-display); font-weight:600; font-size: 1.05rem; color: #fff;
+    display:flex; align-items:center; gap:10px; letter-spacing: 0.01em;
+  }
+  .brand .dot{ width:8px; height:8px; border-radius:50%; background: var(--accent-gold); flex-shrink:0; }
+  nav.links{ display:flex; gap: 26px; flex-wrap: wrap; }
+  nav.links a{
+    color: rgba(255,255,255,0.72); text-decoration:none; font-weight:600; font-size: 0.82rem;
+    letter-spacing: 0.03em; text-transform: uppercase; padding: 4px 0; border-bottom: 1px solid transparent;
+  }
+  nav.links a:hover{ color: var(--accent-gold-soft); border-bottom-color: var(--accent-gold-soft); }
+  .text-toggle{ display:flex; align-items:center; gap:8px; font-family: var(--font-mono); font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+  .text-toggle button{
+    width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3);
+    background: transparent; color: #fff; cursor:pointer; font-family: var(--font-body); font-weight:700; font-size: 0.85rem;
+  }
+  .text-toggle button:hover{ background: var(--accent-gold); border-color: var(--accent-gold); color: var(--hero-bg); }
+ 
+  /* ---------------- HERO ---------------- */
+  .hero{
+    background: radial-gradient(120% 140% at 78% 15%, var(--hero-bg-2) 0%, var(--hero-bg) 55%);
+    color: #fff; padding: 88px 0 96px; position: relative; overflow: hidden;
+  }
+  .hero-grid{
+    max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items:center;
+  }
+  .eyebrow{
+    font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.72rem; color: var(--accent-gold-soft); margin: 0 0 18px;
+  }
+  h1{
+    font-family: var(--font-display); font-weight: 500; font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+    line-height: 1.08; margin: 0 0 20px; color: #fff;
+  }
+  h1 em{ font-style: italic; color: var(--accent-gold-soft); font-weight: 500; }
+  .hero-sub{ color: rgba(255,255,255,0.72); font-size: 1.08rem; max-width: 46ch; margin: 0 0 30px; }
+  .hero-meta{
+    display:flex; gap: 28px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.75rem;
+    color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .hero-meta strong{ display:block; color: rgba(255,255,255,0.85); font-family: var(--font-body); text-transform:none; letter-spacing:0; font-size: 0.95rem; margin-bottom: 2px; }
+ 
+  /* Ambient lens/aperture graphic — decorative, non-interactive */
+  .lens-wrap{ position:relative; display:flex; align-items:center; justify-content:center; }
+  .lens-wrap svg{ width: 100%; max-width: 340px; height:auto; }
+  .lens-ring{ transform-origin: 170px 170px; animation: lens-rotate 60s linear infinite; }
+  .lens-ring.rev{ animation-direction: reverse; animation-duration: 90s; }
+  @keyframes lens-rotate{ from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
+  .lens-glow{ filter: blur(1px); }
+ 
+  /* ---------------- LAYOUT: sidebar + content ---------------- */
+  .content-shell{
+    max-width: 1080px; margin: 0 auto; padding: 64px 28px 40px;
+    display:grid; grid-template-columns: 220px 1fr; gap: 56px;
+    align-items:start;
+  }
+  .toc{ position: sticky; top: 84px; }
+  .toc-label{
+    font-family: var(--font-mono); font-size: 0.68rem; text-transform:uppercase; letter-spacing: 0.1em;
+    color: var(--accent-teal); margin: 0 0 14px;
+  }
+  .toc ol{ list-style:none; margin:0; padding:0; border-left: 1px solid var(--line); }
+  .toc li{ margin: 0; }
+  .toc a{
+    display:block; padding: 9px 0 9px 18px; margin-left:-1px; border-left: 2px solid transparent;
+    color: var(--ink-soft); text-decoration:none; font-size: 0.9rem; font-weight: 600;
+  }
+  .toc a:hover, .toc a:focus-visible{ color: var(--ink); border-left-color: var(--accent-gold); }
+  .toc .n{ font-family: var(--font-mono); color: var(--accent-gold); margin-right: 8px; font-weight:500; }
+ 
+  .content-main > section{ margin-bottom: 64px; scroll-margin-top: 84px; }
+  .content-main > section:last-child{ margin-bottom: 0; }
+ 
+  h2{ font-family: var(--font-display); font-weight:600; font-size: 1.85rem; margin: 0 0 18px; color: var(--ink); }
+  h3{ font-family: var(--font-display); font-weight:600; font-size: 1.18rem; margin: 26px 0 8px; color: var(--ink); }
+  p{ margin: 0 0 16px; color: var(--ink-soft); }
+  strong{ color: var(--ink); }
+ 
+  ul.plain{ margin:0 0 16px; padding-left: 1.15em; color: var(--ink-soft); }
+  ul.plain li{ margin-bottom: 7px; padding-left: 4px; }
+ 
+  sup.cite{ font-family: var(--font-mono); font-size: 0.66rem; color: var(--accent-teal); margin-left: 1px; }
+ 
+  .pull{
+    font-family: var(--font-display); font-style: italic; font-size: 1.28rem; line-height: 1.5;
+    color: var(--ink); border-left: 3px solid var(--accent-gold); padding: 4px 0 4px 22px; margin: 28px 0;
+  }
+ 
+  /* helper cards */
+  .helpers{ display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; margin-top: 22px; }
+  .helper-card{
+    background: var(--bg-alt); border:1px solid var(--line); border-radius: 3px;
+    padding: 20px 22px; transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .helper-card:hover{ border-color: var(--accent-gold); transform: translateY(-2px); }
+  .helper-card h3{ margin: 0 0 6px; font-size: 1.02rem; }
+  .helper-card p{ margin:0; font-size: 0.93rem; }
+  .helper-role{
+    font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--accent-gold); display:block; margin-bottom: 8px;
+  }
+ 
+  /* resources */
+  .resource-list{ list-style: none; margin:0; padding:0; border-top: 1px solid var(--line); }
+  .resource-list li{
+    padding: 18px 0; border-bottom: 1px solid var(--line); display:flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items:baseline;
+  }
+  .resource-name{ font-weight:700; color: var(--ink); font-size: 1.01rem; }
+  .resource-desc{ font-size: 0.92rem; color: var(--ink-soft); margin-top: 3px; }
+  .resource-list a{ font-family: var(--font-mono); font-size: 0.82rem; white-space: nowrap; }
+ 
+  /* FAQ */
+  details{ border-bottom: 1px solid var(--line); padding: 4px 0; }
+  details:first-of-type{ border-top: 1px solid var(--line); }
+  summary{
+    padding: 16px 0; font-weight:600; cursor:pointer; list-style:none; display:flex;
+    align-items:center; justify-content:space-between; gap: 16px; color: var(--ink); font-size: 1.02rem;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary .plus{ font-family: var(--font-mono); font-size:1.2rem; color: var(--accent-gold); flex-shrink:0; transition: transform 0.15s ease; }
+  details[open] summary .plus{ transform: rotate(45deg); }
+  details p{ padding: 0 0 18px; margin:0; max-width: 62ch; }
+ 
+  /* acknowledgement */
+  .ack-section{ background: var(--bg-alt); border: 1px solid var(--line); border-left: 3px solid var(--accent-teal); padding: 28px 32px; border-radius: 2px; }
+  .ack-section p{ margin:0; }
+ 
+  /* footer */
+  footer{ background: var(--hero-bg); color: rgba(255,255,255,0.65); padding: 40px 0; font-size: 0.85rem; margin-top: 20px; }
+  footer .wrap{ display:flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items:flex-start; }
+  footer strong{ color:#fff; }
+ 
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; text-align:left; }
+    .lens-wrap{ order:-1; max-width: 220px; margin: 0 0 16px; }
+    .lens-wrap svg{ max-width: 200px; }
+    .content-shell{ grid-template-columns: 1fr; }
+    .toc{ position:static; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 8px; }
+    .toc ol{ display:flex; flex-wrap:wrap; gap: 4px 18px; border-left:none; }
+    .toc a{ padding: 4px 0; border-left:none; }
+  }
+  @media (max-width: 600px){
+    nav.links{ display:none; }
+  }
+</style>
+</head>
+<body>
+ 
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span>Lorem Ipsum</div>
+    <nav class="links" aria-label="Section navigation">
+      <a href="#overview">Overview</a>
+      <a href="#management">Management</a>
+      <a href="#resources">Resources</a>
+      <a href="#faq">FAQ</a>
+      <a href="#who-can-help">Who Can Help</a>
+      <a href="#acknowledgement">Country</a>
+    </nav>
+    <div class="text-toggle" role="group" aria-label="Adjust text size">
+      <span>Text</span>
+      <button id="text-smaller" aria-label="Decrease text size">A−</button>
+      <button id="text-larger" aria-label="Increase text size">A+</button>
+    </div>
+  </div>
+</header>
+ 
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Lorem ipsum dolor sit amet</p>
+      <h1>Consectetur adipiscing <em>elit sed do</em></h1>
+      <p class="hero-sub">Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <div class="hero-meta">
+        <span><strong>Lorem ipsum</strong>Dolor sit amet</span>
+        <span><strong>Consectetur</strong>Adipiscing elit</span>
+      </div>
+    </div>
+    <div class="lens-wrap" aria-hidden="true">
+      <svg viewBox="0 0 340 340">
+        <defs>
+          <radialGradient id="irisGrad" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#CB9A4E"/>
+            <stop offset="55%" stop-color="#2F6E6E"/>
+            <stop offset="100%" stop-color="#0E1B21"/>
+          </radialGradient>
+        </defs>
+        <circle cx="170" cy="170" r="150" fill="none" stroke="rgba(228,196,138,0.18)" stroke-width="1"/>
+        <circle cx="170" cy="170" r="120" fill="none" stroke="rgba(228,196,138,0.28)" stroke-width="1"/>
+        <g class="lens-ring">
+          <g opacity="0.85">
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(30 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(60 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(90 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(120 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(150 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(180 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(210 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(240 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(270 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(300 170 170)"/>
+            <path d="M170 40 L176 90 L164 90 Z" fill="#CB9A4E" transform="rotate(330 170 170)"/>
+          </g>
+        </g>
+        <circle class="lens-glow" cx="170" cy="170" r="78" fill="url(#irisGrad)"/>
+        <circle cx="170" cy="170" r="30" fill="#0E1B21"/>
+        <circle class="lens-ring rev" cx="170" cy="170" r="30" fill="none">
+          <animate attributeName="r" values="30;33;30" dur="6s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="158" cy="158" r="7" fill="rgba(255,255,255,0.35)"/>
+      </svg>
+    </div>
+  </div>
+</div>
+ 
+<div class="content-shell">
+  <nav class="toc" aria-label="Page contents">
+    <p class="toc-label">On this page</p>
+    <ol>
+      <li><a href="#overview"><span class="n">01</span>Overview</a></li>
+      <li><a href="#management"><span class="n">02</span>Management</a></li>
+      <li><a href="#resources"><span class="n">03</span>Resources</a></li>
+      <li><a href="#faq"><span class="n">04</span>FAQ</a></li>
+      <li><a href="#who-can-help"><span class="n">05</span>Who Can Help</a></li>
+      <li><a href="#acknowledgement"><span class="n">06</span>Country</a></li>
+    </ol>
+  </nav>
+ 
+  <main class="content-main">
+ 
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<sup class="cite">[1]</sup></p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<sup class="cite">[2]</sup></p>
+ 
+      <h3>Duis aute irure dolor</h3>
+      <ul class="plain">
+        <li><strong>Lorem ipsum</strong> — dolor sit amet consectetur adipiscing elit.</li>
+        <li><strong>Sed do eiusmod</strong> — tempor incididunt ut labore et dolore.</li>
+        <li><strong>Magna aliqua</strong> — ut enim ad minim veniam quis nostrud.</li>
+        <li><strong>Exercitation</strong> — ullamco laboris nisi ut aliquip ex ea.</li>
+      </ul>
+ 
+      <p class="pull">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+ 
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<sup class="cite">[3]</sup></p>
+    </section>
+ 
+    <section id="management">
+      <h2>Management</h2>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.<sup class="cite">[4]</sup></p>
+ 
+      <h3>Totam rem aperiam</h3>
+      <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.<sup class="cite">[5]</sup></p>
+      <p>Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+ 
+      <h3>Ut enim ad minima</h3>
+      <ul class="plain">
+        <li>Quis autem vel eum iure reprehenderit qui in ea voluptate.</li>
+        <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</li>
+        <li>Aut odit aut fugit, sed quia consequuntur magni dolores.</li>
+        <li>Ratione voluptatem sequi nesciunt neque porro quisquam.</li>
+      </ul>
+ 
+      <h3>Nam libero tempore</h3>
+      <p>Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+    </section>
+ 
+    <section id="resources">
+      <h2>Resources</h2>
+      <ul class="resource-list">
+        <li>
+          <div>
+            <div class="resource-name">Lorem Ipsum Foundation</div>
+            <div class="resource-desc">Dolor sit amet consectetur adipiscing elit sed do eiusmod.</div>
+          </div>
+          <a href="#" onclick="return false;">loremipsum.example*</a>
+        </li>
+        <li>
+          <div>
+            <div class="resource-name">Consectetur Adipiscing Org</div>
+            <div class="resource-desc">Tempor incididunt ut labore et dolore magna aliqua ut enim.</div>
+          </div>
+          <a href="#" onclick="return false;">consectetur.example*</a>
+        </li>
+        <li>
+          <div>
+            <div class="resource-name">Magna Aliqua Association</div>
+            <div class="resource-desc">Nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</div>
+          </div>
+          <a href="#" onclick="return false;">magnaaliqua.example*</a>
+        </li>
+        <li>
+          <div>
+            <div class="resource-name">Dolore Eu Fugiat Group</div>
+            <div class="resource-desc">Nulla pariatur excepteur sint occaecat cupidatat non proident.</div>
+          </div>
+          <a href="#" onclick="return false;">doloreeu.example*</a>
+        </li>
+      </ul>
+    </section>
+ 
+    <section id="faq">
+      <h2>FAQ</h2>
+ 
+      <details>
+        <summary>Lorem ipsum dolor sit amet? <span class="plus">+</span></summary>
+        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </details>
+      <details>
+        <summary>Ut enim ad minim veniam? <span class="plus">+</span></summary>
+        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.</p>
+      </details>
+      <details>
+        <summary>Duis aute irure dolor in? <span class="plus">+</span></summary>
+        <p>Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.</p>
+      </details>
+      <details>
+        <summary>Excepteur sint occaecat cupidatat? <span class="plus">+</span></summary>
+        <p>Non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut.</p>
+      </details>
+      <details>
+        <summary>Sed ut perspiciatis unde omnis? <span class="plus">+</span></summary>
+        <p>Iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa.</p>
+      </details>
+    </section>
+ 
+    <section id="who-can-help">
+      <h2>Who Can Help</h2>
+      <div class="helpers">
+        <div class="helper-card">
+          <span class="helper-role">Lorem ipsum</span>
+          <h3>Dolor Sit Amet</h3>
+          <p>Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+        </div>
+        <div class="helper-card">
+          <span class="helper-role">Consectetur</span>
+          <h3>Adipiscing Elit</h3>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="helper-card">
+          <span class="helper-role">Magna aliqua</span>
+          <h3>Ut Enim Ad</h3>
+          <p>Minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+        </div>
+        <div class="helper-card">
+          <span class="helper-role">Exercitation</span>
+          <h3>Ullamco Laboris</h3>
+          <p>Nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+        </div>
+      </div>
+    </section>
+ 
+    <section id="acknowledgement">
+      <h2>Acknowledgement of Country</h2>
+      <div class="ack-section">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+      </div>
+    </section>
+ 
+  </main>
+</div>
+ 
+<footer>
+  <div class="wrap">
+    <div><strong>Lorem Ipsum</strong><br>Dolor sit amet consectetur adipiscing elit.</div>
+    <div>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+  </div>
+</footer>
+ 
+<script>
+  const body = document.body;
+  document.getElementById('text-larger').addEventListener('click', () => body.classList.add('large-text'));
+  document.getElementById('text-smaller').addEventListener('click', () => body.classList.remove('large-text'));
+</script>
+ 
+</body>
+</html>
