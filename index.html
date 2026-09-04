@@ -183,6 +183,14 @@
   .ack-section{ background: var(--bg-alt); border: 1px solid var(--line); border-left: 3px solid var(--accent-teal); padding: 28px 32px; border-radius: 2px; }
   .ack-section p{ margin:0; }
 
+  /* references */
+  .refs{ background: var(--bg-alt); border-top: 1px solid var(--line); scroll-margin-top: 84px; }
+  .refs .wrap{ padding: 56px 28px; }
+  .refs h2{ margin-bottom: 22px; }
+  .refs ol{ padding-left: 1.4em; margin:0; }
+  .refs li{ font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 12px; line-height:1.55; }
+  .refs li a{ word-break: break-all; }
+
   /* footer */
   footer{ background: var(--hero-bg); color: rgba(255,255,255,0.65); padding: 40px 0; font-size: 0.85rem; margin-top: 20px; }
   footer .wrap{ display:flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items:flex-start; }
@@ -231,7 +239,7 @@
       <p class="hero-sub">What a cataract is, what raises your risk, how it's managed, and who's involved in your care.</p>
       <div class="hero-meta">
         <span><strong>Patient guide</strong>Overview through to who can help</span>
-        <span><strong>This website aims to educate about what a cataract is, and what to expect if you are diagnosed with one</strong></span>
+        <span><strong>23 sources cited</strong>See reference list</span>
       </div>
     </div>
     <div class="lens-wrap" aria-hidden="true">
@@ -282,6 +290,7 @@
       <li><a href="#faq"><span class="n">04</span>FAQ</a></li>
       <li><a href="#who-can-help"><span class="n">05</span>Who Can Help</a></li>
       <li><a href="#acknowledgement"><span class="n">06</span>Country</a></li>
+      <li><a href="#references"><span class="n">07</span>References</a></li>
     </ol>
   </nav>
 
@@ -332,18 +341,21 @@
             <div class="resource-name">Vision Australia</div>
             <div class="resource-desc">Support services as well as low vision aids, including near magnification objects to assist with tasks such as reading.</div>
           </div>
+          <a href="#" onclick="return false;">visionaustralia.org*</a>
         </li>
         <li>
           <div>
             <div class="resource-name">Local Aboriginal Community Controlled Health Organisation</div>
             <div class="resource-desc">Non clinical support, shown to measurably improve attendance and access to eye care for Aboriginal and Torres Strait Islander patients.<sup class="cite">[7]</sup></div>
           </div>
+          <a href="#" onclick="return false;">find your local ACCHO*</a>
         </li>
         <li>
           <div>
             <div class="resource-name">AIHW Indigenous Eye Health Measures</div>
             <div class="resource-desc">Provides national data and health outcomes for Aboriginal and Torres Strait Islander people.<sup class="cite">[9]</sup></div>
           </div>
+          <a href="#" onclick="return false;">aihw.gov.au*</a>
         </li>
       </ul>
     </section>
@@ -409,6 +421,37 @@
     </section>
 
   </main>
+</div>
+
+<div class="refs" id="references">
+  <div class="wrap">
+    <h2>References</h2>
+    <ol>
+      <li>Wang Z, Friedrich MG, Truscott RJW, Schey KL. Identification of age- and cataract-related changes in high-density lens protein aggregates. Invest Ophthalmol Vis Sci. 2025;66(5):34. Available from: <a href="https://iovs.arvojournals.org/article.aspx?articleid=2803004" target="_blank" rel="noopener">https://iovs.arvojournals.org/article.aspx?articleid=2803004</a></li>
+      <li>[Author(s)]. Global, regional and national burden of cataract 1990–2021: a GBD 2021 analysis. PLOS One. 2025. Available from: <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0326263" target="_blank" rel="noopener">https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0326263</a></li>
+      <li>[Author(s)]. Occupational exposures and age-related cataract: a review. Available from: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12013362/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC12013362/</a></li>
+      <li>[Author(s)]. Solar UV exposure through the pupil: sunglasses and quantitative modelling. Sci Rep. 2023. Available from: <a href="https://link.springer.com/article/10.1038/s41598-023-50831-9" target="_blank" rel="noopener">https://link.springer.com/article/10.1038/s41598-023-50831-9</a></li>
+      <li>Pollreisz A, Schmidt-Erfurth U. Diabetic cataract — pathogenesis, epidemiology and treatment. J Ophthalmol. 2010;2010:608751. Available from: <a href="https://onlinelibrary.wiley.com/doi/10.1155/2010/608751" target="_blank" rel="noopener">https://onlinelibrary.wiley.com/doi/10.1155/2010/608751</a></li>
+      <li>[Author(s)]. Cataract in patients with diabetes mellitus: UK incidence rates and risk factors. Eye. 2018. Available from: <a href="https://www.nature.com/articles/s41433-017-0003-1" target="_blank" rel="noopener">https://www.nature.com/articles/s41433-017-0003-1</a></li>
+      <li>[Author(s)]. Non-clinical support for eye care access among Indigenous Australians. Aust J Prim Health. Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/31930522/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/31930522/</a></li>
+      <li>Razavi H, Burrow S, Trzesinski A. Review of eye health among Aboriginal and Torres Strait Islander people. Aust Indig Health Bull. Available from: <a href="https://healthbulletin.org.au/articles/review-of-eye-health-among-aboriginal-and-torres-strait-islander-people/" target="_blank" rel="noopener">https://healthbulletin.org.au/articles/review-of-eye-health-among-aboriginal-and-torres-strait-islander-people/</a></li>
+      <li>Australian Institute of Health and Welfare. Eye health measures for Aboriginal and Torres Strait Islander people [Internet]. Canberra: AIHW. Available from: <a href="https://www.indigenoushpf.gov.au/measures/1-16-eye-health" target="_blank" rel="noopener">https://www.indigenoushpf.gov.au/measures/1-16-eye-health</a></li>
+      <li>[Author(s)]. Smoking and risk of age-related cataract: a meta-analysis. Invest Ophthalmol Vis Sci. 2012. Available from: <a href="https://iovs.arvojournals.org/article.aspx?articleid=2128544" target="_blank" rel="noopener">https://iovs.arvojournals.org/article.aspx?articleid=2128544</a></li>
+      <li>[Author(s)]. Risk of cataract in smokers and ex-smokers: a comparative study. Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/30528895/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/30528895/</a></li>
+      <li>Hammond CJ, Snieder H, Spector TD, Gilbert CE. Genetic and environmental factors in age-related nuclear cataracts in monozygotic and dizygotic twins. N Engl J Med. 2000;342(24):1786–90. Available from: <a href="https://www.nejm.org/doi/full/10.1056/NEJM200006153422404" target="_blank" rel="noopener">https://www.nejm.org/doi/full/10.1056/NEJM200006153422404</a></li>
+      <li>Hammond CJ, Duncan DD, Snieder H, de Lange M, West SK, Spector TD, et al. The heritability of age-related cortical cataract: the Twin Eye Study. Invest Ophthalmol Vis Sci. 2001. Available from: <a href="https://iovs.arvojournals.org/article.aspx?articleid=2123342" target="_blank" rel="noopener">https://iovs.arvojournals.org/article.aspx?articleid=2123342</a></li>
+      <li>Roberts HW, et al. FACT trial: femtosecond laser-assisted vs standard phacoemulsification cataract surgery, a randomised controlled trial. Available from: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7397499/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC7397499/</a></li>
+      <li>[Author(s)]. Visual acuity and quality-of-life improvement after cataract surgery (SF-36). Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/18373297/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/18373297/</a></li>
+      <li>[Author(s)]. Vision-related quality of life after phacoemulsification, assessed with NEI-VFQ-25. 2022. Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/35083419/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/35083419/</a></li>
+      <li>[Author(s)]. Three-year incidence of Nd:YAG capsulotomy and posterior capsule opacification by IOL material. Eye. 2018. Available from: <a href="https://www.nature.com/articles/s41433-018-0131-2" target="_blank" rel="noopener">https://www.nature.com/articles/s41433-018-0131-2</a></li>
+      <li>[Author(s)]. Cochrane Corner: immediate vs delayed sequential bilateral cataract surgery. Eye. 2023. Available from: <a href="https://www.nature.com/articles/s41433-023-02436-9" target="_blank" rel="noopener">https://www.nature.com/articles/s41433-023-02436-9</a></li>
+      <li>[Author(s)]. Incidence and predictors of falls in older adults with cataract awaiting surgery. Invest Ophthalmol Vis Sci. Available from: <a href="https://iovs.arvojournals.org/article.aspx?articleid=2582847" target="_blank" rel="noopener">https://iovs.arvojournals.org/article.aspx?articleid=2582847</a></li>
+      <li>[Author(s)]. Cataract surgery, visual impairment and fall frequency among older adults. Available from: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11443992/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC11443992/</a></li>
+      <li>[Author(s)]. Portable electronic vs optical magnifiers for near-vision tasks in low vision: a randomised crossover trial. Ophthalmic Physiol Opt. 2017. Available from: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/opo.12379" target="_blank" rel="noopener">https://onlinelibrary.wiley.com/doi/abs/10.1111/opo.12379</a></li>
+      <li>[Author(s)]. Incidence and progression of cortical, nuclear and posterior subcapsular cataract (LOCS II longitudinal study). Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/7977575/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/7977575/</a></li>
+      <li>American Academy of Ophthalmology. Cataract [Internet]. EyeWiki. Available from: <a href="https://eyewiki.aao.org/Cataract" target="_blank" rel="noopener">https://eyewiki.aao.org/Cataract</a></li>
+    </ol>
+  </div>
 </div>
 
 <footer>
